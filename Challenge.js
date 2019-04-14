@@ -1,21 +1,21 @@
 
 class Challenge{
     constructor(category, name, id){
-        this.category = category;
-        this.name = name;
-        this.id = id;
+        this._category = category;
+        this._name = name;
+        this._id = id;
     }
 
     get category(){
-        return this.category;
+        return this._category;
     }
 
     get name(){
-        return this.name;
+        return this._name;
     }
 
     get id(){
-        return this.id;
+        return this._id;
     }
 
     // how to keep hints? 

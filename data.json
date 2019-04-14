@@ -4,10 +4,10 @@
             "id": 1,
             "name": "love",
             "localName":{
-                "en_US": "love!",
+                "en_US": "love!"
             },
             "localDescription":{
-                "en_US": "love!",
+                "en_US": "love!"
             }
         },
 
@@ -15,10 +15,10 @@
             "id": 2,
             "name": "work",
             "localName":{
-                "en_US": "work!",
+                "en_US": "work!"
             },
             "localDescription":{
-                "en_US": "work!",
+                "en_US": "work!"
             }
         }
     ],
@@ -31,12 +31,12 @@
 
             "localName":{
                 "en_US": "Defeat!",
-                "ru_RU": "Поражение!",
+                "ru_RU": "Поражение!"
             },
 
             "localDescription":{
                 "en_US": "Defeat!",
-                "ru_RU": "Поражение!",
+                "ru_RU": "Поражение!"
             }
 
         },
@@ -48,15 +48,15 @@
 
             "localName":{
                 "en_US": "Defeat!",
-                "ru_RU": "Поражение!",
+                "ru_RU": "Поражение!"
             },
 
             "localDescription":{
                 "en_US": "Defeat!",
-                "ru_RU": "Поражение!",
+                "ru_RU": "Поражение!"
             }
-        },
-    ]
+        }
+    ],
 
     "hints": [
         

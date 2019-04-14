@@ -1,15 +1,15 @@
 
 class Category{
     constructor(name, id){
-        this.name = name;
-        this.id = id;
+        this._name = name;
+        this._id = id;
     }
 
     get name(){
-        return this.name;
+        return this._name;
     }
 
     get id(){
-        return this.id;
+        return this._id;
     }
 }

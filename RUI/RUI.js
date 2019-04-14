@@ -1,3 +1,13 @@
+let Anchor = Object.freeze({left:"left", right:"right", center:"center", top:"top", bottom: "bottom"});
+let Align = Object.freeze({center:"center"});
+let Shape = Object.freeze({circle:"circle", rounded:"rounded", rect:"rect"});
+
+const FT_FAMILY_ARIAL = 'Arial';
+const FT_WEIGHT_BLD = 700;
+const FT_WEIGHT_REG = 400;
+const FT_SIZE_STD_BTN = 34;
+const FT_SIZE_STD_HDR = 48;
+
 
 // a base abstract object for ui elements, can be animated
 /**
@@ -65,7 +75,6 @@ class UIObject{
     // }
 
     _animate(){
-
     }
 // eof animation
 

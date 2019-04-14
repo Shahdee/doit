@@ -22,19 +22,25 @@ class GameData {
     }
 
     retreiveGameData(callback){
-        this.gameMan.assetLoader.readTextFile(DATA_PATH, function(data){
+        this.gameMan.assetMan.readTextFile(DATA_PATH, (data)=>{
             this.parseData(data);
             this.getInitialData();
             callback();
         });
     }
-    
+
+
     parseData(data){
-        if (data === null){
-            // console.log("bad json data");
+        try {
+            this.data = JSON.parse(data); 
+        } catch (e) {
+            this.data = data;
+        }
+
+        if (this.data === null){
+            console.log("bad json data");
             return;
         }
-        this.data = JSON.parse(data);
     }
 
     getInitialData(){

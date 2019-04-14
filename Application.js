@@ -8,8 +8,6 @@ BitmapText = PIXI.extras.BitmapText,
 Rectangle = PIXI.Rectangle;
 
 let screenSetup = false;
-let screenWidth, screenHeight; 
-let GameInfo, canvas, app;
 let gameMan;
 
 window.onresize = function(){

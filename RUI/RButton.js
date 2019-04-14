@@ -1,3 +1,6 @@
+
+// TODO - add scale animation later 
+
 /**
  * An UI button object
  *
@@ -22,6 +25,7 @@ class ButtonBase extends UIObject{
 
         this.setParent(parent);
         this.container.position.set(options.posX, options.posY); // x,y - left top corner
+        this.container.interactive = false;
     }
 
     createButton(options){
@@ -81,7 +85,7 @@ class ButtonBase extends UIObject{
  * @param [options.width] 
  * @param [options.height]
  *
- * @param [options.icon] 
+ * @param [options.icon] link to texture
  * @param [options.iconWidth] 
  * @param [options.iconHeight]
  * @param [options.iconFlipHor]
@@ -92,7 +96,7 @@ class ButtonBase extends UIObject{
  * @param [options.buttonColor]
  * @param [options.buttonAlpha]
  */
-class IconButton_New extends UIObject_New{
+class IconButton extends UIObject{
 
     constructor(options, click, down, up, out, parent){
         super(options.name, options.pivotX, options.pivotY);
@@ -100,14 +104,13 @@ class IconButton_New extends UIObject_New{
         this.createButton(options, click, down, up, out);
 
         this.setParent(parent);
-
         this._setPivot();
-
-        this.setPosition(options.posX, options.posY); // x,y - left top corner
+        this.setPosition(options.posX, options.posY); 
+        this.container.interactive = false;
     }
 
     createButton(options, click, down, up, out){
-        this.button = new ButtonBase_New({
+        this.button = new ButtonBase({
             posX: 0,
             posY: 0,
             width: options.width,
@@ -135,17 +138,19 @@ class IconButton_New extends UIObject_New{
 
             this.container.addChild(this.icon);
         }
-        else
+        else{
+            // if (showLogs)
             console.log("no res for icon button " + options.icon);
+        }
     }
 
     _resetAnimation(){
-        this.container.scale.x = this.container.scale.y = 1;
+        // this.container.scale.x = this.container.scale.y = 1;
     }
 
     _animate() {
-        sizeScale = 1 + Math.sin(globalTimer * 12) * 0.12;//Music1
-        this.container.scale.x = this.container.scale.y = sizeScale;
+        // sizeScale = 1 + Math.sin(globalTimer * 12) * 0.12; 
+        // this.container.scale.x = this.container.scale.y = sizeScale;
     }
 }
 

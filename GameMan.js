@@ -1,4 +1,9 @@
 
+// TODO 
+// social platforms 
+// RUI classes 
+// 
+
 let GameStates = Object.freeze({Loader:1, MainMenu:2, DailySetup:3, Stats:4});
 
 class GameMan {
@@ -9,22 +14,20 @@ class GameMan {
         this.state = null;
         this.gameState = 0;
 
-        this.assetLoader = new AssetLoader(this);
-        this.gameData = new GameData(this);
-        this.guiMan = new GUIMan(this);
+        this._assetMan = new AssetMan(this);
+        this._gameData = new GameData(this);
+        this._guiMan = new GUIMan(this);
+        
         this.socialPlatform = new FBPlatform(this); // TODO SocialPlatform  
-        this.player = new Player(this);
+        this._player = new Player(this);
 
         this.onGameStateChange = new BaseAction();
 
-        this.gameData.retreiveGameData(()=>{
-                this.guiMan.loadAssets(()=>{
+        this._gameData.retreiveGameData(()=>{
+                this._assetMan.loadAssets(()=>{
                     this.socialPlatform.initPlatform((e)=>{
 
-                        
-
                         this.socialPlatform.startGame((e)=>{
-
                             
                             this.initGame();
 
@@ -54,31 +57,38 @@ class GameMan {
                 width: this.screenWidth,
                 height: this.screenHeight,
                 antialias: true,
-                transparent: true,
+                transparent: false,
+                backgroundColor: 0xffffff, 
                 resolution: 1,
             }
         );
+
+        console.log(this.screenWidth + ' / ' + this.screenHeight);
     
         let viewport = document.getElementById("viewport");
         this.app.view.className = "app-view";
         viewport.appendChild(this.app.view);
     }
 
-    get assetLoader(){
-        return this.assetLoader;
+    get assetMan(){
+        return this._assetMan;
     }
 
     get gameData(){
-        return this.gameData;
+        return this._gameData;
     }
 
     get guiMan(){
-        return this.gameData;
+        return this._guiMan;
+    }
+
+    get player(){
+        return this._player;
     }
 
     initGame(){
-        this.guiMan.Init();
-        this.onGameStateChange.addListener(this.guiMan.gameStateChange);
+        this._guiMan.init();
+        this.onGameStateChange.addListener(this._guiMan.gameStateChange);
 
         // TODO player - get SN data 
 
@@ -111,8 +121,13 @@ class GameMan {
         }
     }
 
+    // physics
+    // logic 
+    // render
+
     gameLoop(delta){
         this.state(delta);
+        
     }
 
     loader(delta){
